@@ -22,7 +22,7 @@ export async function GET(request: NextRequest) {
 
   if (error) {
     // Fallback: return perfect score if DB query fails
-    return NextResponse.json({ score: computeSafetyScore([]) });
+    return NextResponse.json(computeSafetyScore([]));
   }
 
   const hazards: HazardForScoring[] = (data ?? []).map((h: Record<string, unknown>) => ({
